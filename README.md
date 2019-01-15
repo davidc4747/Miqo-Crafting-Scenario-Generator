@@ -1,4 +1,4 @@
-# Miqo Crafting Scenario Generator &middot; [![GitHub last commit](https://img.shields.io/github/last-commit/davidc4747/responsive-gif.svg)](https://github.com/davidc4747/responsive-gif) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/davidc4747/responsive-gif/pulls)
+# Miqo Crafting Scenario Generator &middot; [![GitHub last commit](https://img.shields.io/github/last-commit/davidc4747/Miqo-Crafting-Scenario-Generator.svg)](https://github.com/davidc4747/Miqo-Crafting-Scenario-Generator) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/davidc4747/Miqo-Crafting-Scenario-Generator/pulls)
 
 ## Description
 
