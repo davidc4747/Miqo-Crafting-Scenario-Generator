@@ -1,0 +1,19 @@
+{
+    "name": "Miqo Crafting Scenario Generator",
+    "version": "0.2.1",
+    "description": "Creates miqo crafting scenarios",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": [
+                "https://ffxivcrafting.com/crafting/from-list*",
+                "https://ffxivcrafting.com/crafting/by-class*"
+            ],
+            "js": [
+                "jquery.min.js",
+                "clipboard.min.js",
+                "miqo-crafting-scenario-generator.js"
+            ]
+        }
+    ]
+}
