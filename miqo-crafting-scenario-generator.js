@@ -1,6 +1,10 @@
 (function() {
     "use strict";
-    new Clipboard("#miqo");
+
+    /*===============================*\
+        # Generate Crafting Scenario
+    \*===============================*/
+
     var rJob = function(val) {
         return $(val)
             .children("td:eq(4)")
@@ -90,96 +94,114 @@
         return miqo;
     };
     var antiDuplicate = function(miqo) {
-        miqo = miqo.replace(/recipe\(Kite Shield\)/g, "recipe(Kite Shield, 3)");
-        miqo = miqo.replace(
-            /recipe\(Goatskin Wristbands\)/g,
-            "recipe(Goatskin Wristbands, 2)"
-        );
-        miqo = miqo.replace(/recipe\(Hempen Breeches\)/g, "recipe(Hempen Breeches, 2)");
-        miqo = miqo.replace(/recipe\(Copper Ring\)/g, "recipe(Copper Ring, 2)");
-        miqo = miqo.replace(/recipe\(Lapis Lazuli\)/g, "recipe(Lapis Lazuli, 2)");
-        miqo = miqo.replace(/recipe\(Brass Ring\)/g, "recipe(Brass Ring, 2)");
-        miqo = miqo.replace(/recipe\(Silver Ring\)/g, "recipe(Silver Ring, 2)");
-        miqo = miqo.replace(/recipe\(Garnet\)/g, "recipe(Garnet, 2)");
-        miqo = miqo.replace(/recipe\(Mythril Ring\)/g, "recipe(Mythril Ring, 3)");
-        miqo = miqo.replace(/recipe\(Horn Staff\)/g, "recipe(Horn Staff, 8)");
-        miqo = miqo.replace(/recipe\(Electrum Ring\)/g, "recipe(Electrum Ring, 2)");
-        miqo = miqo.replace(/recipe\(Honey\)/g, "recipe(Honey, 8)");
-        miqo = miqo.replace(/recipe\(Horn Fishing Rod\)/g, "recipe(Horn Fishing Rod, 2)");
-        miqo = miqo.replace(/recipe\(Ether\)/g, "recipe(Ether, 8)");
-        miqo = miqo.replace(/recipe\(Poisoning Potion\)/g, "recipe(Poisoning Potion, 2)");
-        miqo = miqo.replace(
-            /recipe\(Paralyzing Potion\)/g,
-            "recipe(Paralyzing Potion, 2)"
-        );
-        miqo = miqo.replace(/recipe\(Blinding Potion\)/g, "recipe(Blinding Potion, 2)");
-        miqo = miqo.replace(/recipe\(Sleeping Potion\)/g, "recipe(Sleeping Potion, 2)");
-        miqo = miqo.replace(/recipe\(Silencing Potion\)/g, "recipe(Silencing Potion, 2)");
-        miqo = miqo.replace(/recipe\(Boarskin Ring\)/g, "recipe(Boarskin Ring, 2)");
-        miqo = miqo.replace(
-            /recipe\(Rose Gold Earrings\)/g,
-            "recipe(Rose Gold Earrings, 2)"
-        );
-        miqo = miqo.replace(/recipe\(Mortar\)/g, "recipe(Mortar, 21)");
-        miqo = miqo.replace(/recipe\(Campfire\)/g, "recipe(Campfire, 2)");
-        miqo = miqo.replace(/recipe\(Manor Fireplace\)/g, "recipe(Manor Fireplace, 2)");
-        miqo = miqo.replace(/recipe\(Wall Chronometer\)/g, "recipe(Wall Chronometer, 2)");
-        miqo = miqo.replace(/recipe\(Cloche\)/g, "recipe(Cloche, 3)");
-        miqo = miqo.replace(/recipe\(Smithing Bench\)/g, "recipe(Smithing Bench, 2)");
-        miqo = miqo.replace(/recipe\(Wall Lantern\)/g, "recipe(Wall Lantern, 2)");
-        miqo = miqo.replace(/recipe\(Holy Rainbow Hat\)/g, "recipe(Holy Rainbow Hat, 2)");
-        miqo = miqo.replace(/recipe\(Reading Glasses\)/g, "recipe(Reading Glasses, 2)");
-        miqo = miqo.replace(
-            /recipe\(Gaganaskin Gloves\)/g,
-            "recipe(Gaganaskin Gloves, 2)"
-        );
-        miqo = miqo.replace(/recipe\(Gold Ingot\)/g, "recipe(Gold Ingot, 2)");
-        miqo = miqo.replace(/recipe\(Orchestrion\)/g, "recipe(Orchestrion, 4)");
-        miqo = miqo.replace(/recipe\(Camphor\)/g, "recipe(Camphor, 14)");
-        miqo = miqo.replace(/recipe\(Cordial\)/g, "recipe(Cordial, 2)");
-        miqo = miqo.replace(/recipe\(Survival Hat\)/g, "recipe(Survival Hat, 2)");
-        miqo = miqo.replace(/recipe\(Survival Shirt\)/g, "recipe(Survival Shirt, 3)");
-        miqo = miqo.replace(
-            /recipe\(Survival Halfslops\)/g,
-            "recipe(Survival Halfslops, 2)"
-        );
-        miqo = miqo.replace(/recipe\(Survival Boots\)/g, "recipe(Survival Boots, 2)");
-        miqo = miqo.replace(/recipe\(Luminous Fiber\)/g, "recipe(Luminous Fiber, 2)");
-        miqo = miqo.replace(
-            /recipe\(Near Eastern Antique\)/g,
-            "recipe(Near Eastern Antique, 2)"
-        );
-        miqo = miqo.replace(
-            /recipe\(Coerthan Souvenir\)/g,
-            "recipe(Coerthan Souvenir, 2)"
-        );
-        miqo = miqo.replace(
-            /recipe\(Maelstrom Materiel\)/g,
-            "recipe(Maelstrom Materiel, 2)"
-        );
-        miqo = miqo.replace(/recipe\(Heartfelt Gift\)/g, "recipe(Heartfelt Gift, 2)");
-        miqo = miqo.replace(
-            /recipe\(Orphanage Donation\)/g,
-            "recipe(Orphanage Donation, 2)"
-        );
-        miqo = miqo.replace(/recipe\(Platinum Ingot\)/g, "recipe(Platinum Ingot, 2)");
+        var dupList = [
+            ["Kite Shield", 3],
+            ["Goatskin Wristbands", 2],
+            ["Hempen Breeches", 2],
+            ["Copper Ring", 2],
+            ["Lapis Lazuli", 2],
+            ["Brass Ring", 2],
+            ["Silver Ring", 2],
+            ["Garnet", 2],
+            ["Mythril Ring", 3],
+            ["Horn Staff", 8],
+            ["Electrum Ring", 2],
+            ["Honey", 8],
+            ["Horn Fishing Rod", 2],
+            ["Ether", 8],
+            ["Poisoning Potion", 2],
+            ["Paralyzing Potion", 2],
+            ["Blinding Potion", 2],
+            ["Sleeping Potion", 2],
+            ["Silencing Potion", 2],
+            ["Elixir", 7],
+            ["Obelisk", 2],
+            ["Mailbreaker", 2],
+            ["Rampager", 2],
+            ["Boarskin Ring", 2],
+            ["Pearl", 7],
+            ["Astrolabe", 2],
+            ["Rose Gold Earrings", 2],
+            ["Sarnga", 2],
+            ["Mortar", 22],
+            ["Campfire", 2],
+            ["Oasis Partition", 2],
+            ["Manor Fireplace", 2],
+            ["Wall Chronometer", 2],
+            ["Cloche", 3],
+            ["Smithing Bench", 2],
+            ["Manor Harp", 2],
+            ["Wall Lantern", 2],
+            ["Holy Rainbow Hat", 2],
+            ["Reading Glasses", 2],
+            ["Archaeoskin Boots", 3],
+            ["Gaganaskin Gloves", 2],
+            ["Gazelleskin Ring", 4],
+            ["Hedge Partition", 2],
+            ["Wolfram Cuirass", 2],
+            ["Wolfram Gauntlets", 2],
+            ["Wolfram Sabatons", 2],
+            ["Gold Ingot", 2],
+            ["Serpentskin Gloves", 3],
+            ["Orchestrion", 4],
+            ["Camphor", 14],
+            ["Cordial", 2],
+            ["Survival Hat", 2],
+            ["Survival Shirt", 3],
+            ["Survival Halfslops", 2],
+            ["Survival Boots", 2],
+            ["Luminous Fiber", 2],
+            ["Teahouse Bench", 2],
+            ["Oden", 5],
+            ["Near Eastern Antique", 2],
+            ["Coerthan Souvenir", 2],
+            ["Maelstrom Materiel", 2],
+            ["Heartfelt Gift", 2],
+            ["Orphanage Donation", 2],
+            ["Gyr Abanian Souvenir", 2],
+            ["Far Eastern Antique", 2],
+            ["Gold Saucer Consolation Prize", 2],
+            ["Resistance Materiel", 2],
+            ["Sui-no-Sato Special", 2],
+            ["Cloud Pearl", 2],
+            ["Platinum Ingot", 2],
+            ["Griffin Leather", 2],
+        ];
+        dupList.forEach(function(row) {
+            miqo = miqo.replace(
+                new RegExp("recipe\\(" + row[0] + "\\)", "g"),
+                "recipe(" + row[0] + ", " + row[1] + ")",
+            );
+        });
         return miqo;
     };
     var scenario = function() {
         var miqo = "";
         miqo += "//Pre-Requisite Crafting\r\n";
-        miqo += "solverPreset(recommended)\r\nnqhq(balanced)\r\nreclaimOff()\r\n\r\n";
+        miqo += "solverPreset(recommended)\r\n";
+        miqo += "nqhq(balanced)\r\n";
+        miqo += "reclaimOff()\r\n\r\n";
         miqo += chapter("PreRequisiteCrafting-section") + "\r\n";
+
         miqo += "//Crafting List\r\n";
-        miqo += "solverPreset(recommended)\r\nnqhq(balanced)\r\nreclaimHQ(50)\r\n\r\n";
+        miqo += "solverPreset(recommended)\r\n";
+        miqo += "nqhq(balanced)\r\n";
+        miqo += "reclaimHQ(50)\r\n\r\n";
         miqo += chapter("CraftingList-section") + "\r\n";
+
         miqo += "//Repair\r\n";
-        miqo += "reclaimOff()\r\nrepair()\r\n";
+        miqo += "reclaimOff()\r\n";
+        miqo += "repair()\r\n";
         miqo = antiDuplicate(miqo);
         //window.prompt("Copy to clipboard: Ctrl+C, Enter", miqo);
         return miqo;
     };
 
+    /*==========================*\
+        # =ㅇㅅㅇ= Button
+    \*==========================*/
+
+    new Clipboard("#miqo");
     var addMiqoButton = function() {
         var scenarioBtn = document.createElement("a");
         scenarioBtn.setAttribute("href", "#");
