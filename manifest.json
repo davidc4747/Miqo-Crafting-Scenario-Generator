@@ -1,6 +1,6 @@
 {
     "name": "Miqo Crafting Scenario Generator",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "description": "Creates miqo crafting scenarios",
     "manifest_version": 2,
     "content_scripts": [
@@ -14,6 +14,11 @@
                 "clipboard.min.js",
                 "miqo-crafting-scenario-generator.js"
             ]
+        },
+        {
+            "matches": ["https://ffxivcrafting.com/recipes*"],
+            "js": ["add-multi-button.js"],
+            "css": ["add-multi-button..css"]
         }
     ]
 }
